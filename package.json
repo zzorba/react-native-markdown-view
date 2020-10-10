@@ -25,6 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
+    "react-native-table-component": "^1.2.1",
     "react-native-tabular-grid-markdown-view": "https://github.com/jamsch/react-native-tabular-grid-markdown-view",
     "simple-markdown": "0.7.2"
   },
