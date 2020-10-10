@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native'
 
-import { Table, Row, TableWrapper } from 'react-native-table-component';
+import { Table, Cell, TableWrapper } from 'react-native-table-component';
 import type {
   EmptyNode,
   HeadingNode,
