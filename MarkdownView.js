@@ -92,7 +92,7 @@ class MarkdownView extends Component {
     const markdown = (Array.isArray(this.props.children) ? this.props.children.join('') : this.props.children) + '\n\n'
 
     const ast = SimpleMarkdown.parserFor(mergedRules)(markdown, {inline: false})
-    const render = SimpleMarkdown.reactFor(SimpleMarkdown.ruleOutput(mergedRules, 'react'))
+    const render = SimpleMarkdown.outputFor(mergedRules, 'react')
     const initialRenderState = {onLinkPress: onLinkPress}
 
     return (
