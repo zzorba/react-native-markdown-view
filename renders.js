@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native'
 
-import { Table, Cell, TableWrapper } from 'react-native-table-component';
+import { Table, Cell, Row, TableWrapper } from 'react-native-table-component';
 import type {
   EmptyNode,
   HeadingNode,
@@ -159,12 +159,12 @@ export default Object.freeze({
   strong: textContentRenderer('strong'),
   table: (node: TableNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => (
     <Table key={state.key} borderStyle={styles.table}>
-      {[<TableWrapper id={1} key={1}>
+      {[<Row id={1} key={1} style={{ flexDirection: 'row' }} data=
         {node.header.map((cell, column) => renderTableCell(cell, 1, column + 1, node.cells.length + 1, node.header.length, output, state, styles))}
-      </TableWrapper>].concat(node.cells.map((cells, row) => (
-        <TableWrapper id={row + 2} key={row + 2}>
+      />].concat(node.cells.map((cells, row) => (
+        <Row id={row + 2} key={row + 2} style={{ flexDirection: 'row' }} data=
           {cells.map((cell, column) => renderTableCell(cell, row + 2, column + 1, node.cells.length + 1, cells.length, output, state, styles))}
-        </TableWrapper>
+        />
       )))}
     </Table>
   ),
