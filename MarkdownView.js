@@ -86,7 +86,23 @@ class MarkdownView extends Component {
   }
 
   render() {
-    const {rules = {}, styles = {}, onLinkPress} = this.props
+    const {rules = {}, styles = {}, onLinkPress, fonts = {
+      Alegreya: {
+        fontWeights: {
+          300: 'Light',
+          400: 'Regular',
+          700: 'Bold',
+          800: 'ExtraBold',
+          900: 'Black',
+          normal: 'Regular',
+          bold: 'Bold',
+        },
+        fontStyles: {
+          normal: '',
+          italic: 'Italic',
+        },
+      },
+    }} = this.props
 
     const mergedStyles = mergeStyles(DefaultStyles, styles)
     const mergedRules = mergeRules(SimpleMarkdown.defaultRules, simpleMarkdownRules(mergeRules(DefaultRules, rules), mergedStyles))
