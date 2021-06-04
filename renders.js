@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native'
+import { MarkdownText } from 'react-native-markdown-view';
 
 import { Table, Cell, Row, TableWrapper } from 'react-native-table-component';
 import type {
@@ -82,9 +83,9 @@ function paragraphRenderer() {
 
 function textContentRenderer(styleName, styleName2) {
   return (node: InlineContentNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => (
-    <Text key={state.key} style={styleName2 ? [styles[styleName], styles[styleName2]] : styles[styleName]}>
+    <MarkdownText key={state.key} style={styleName2 ? [styles[styleName], styles[styleName2]] : styles[styleName]}>
       {typeof node.content === 'string' ? node.content : output(node.content, state)}
-    </Text>
+    </MarkdownText>
   )
 }
 
@@ -127,9 +128,9 @@ export default Object.freeze({
   inlineCode: textContentRenderer('inlineCode'),
   link: (node: LinkNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => {
     const onPress = state.onLinkPress
-    return <Text key={state.key} style={styles.link} onPress={onPress ? () => onPress(node.target) : null}>
+    return <MarkdownText key={state.key} style={styles.link} onPress={onPress ? () => onPress(node.target) : null}>
       {typeof node.content === 'string' ? node.content : output(node.content, state)}
-    </Text>
+    </MarkdownText>
   },
   list: (node: ListNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => (
     <View key={state.key} style={styles.list}>

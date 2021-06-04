@@ -14,6 +14,7 @@ import SimpleMarkdown from 'simple-markdown'
 
 import DefaultRenders from './renders'
 import DefaultStyles from './styles'
+import { FontFamilyContext } from './MarkdownText'
 
 import type {
   ImageNode,
@@ -76,6 +77,7 @@ const DefaultRules : Rules = Object.freeze(mergeRules(
 
 class MarkdownView extends Component {
   props: {
+    fonts?: Object,
     style?: Object,
     rules?: Rules,
     onLinkPress?: (string) => void,
@@ -97,7 +99,9 @@ class MarkdownView extends Component {
 
     return (
       <View style={this.props.style}>
-        {render(ast, initialRenderState)}
+        <FontFamilyContext.Provider value={{ style: style.paragraph, fonts }}>
+          {render(ast, initialRenderState)}
+        </FontFamilyContext.Provider>
       </View>
     )
   }

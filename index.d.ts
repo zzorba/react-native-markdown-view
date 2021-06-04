@@ -1,6 +1,6 @@
 declare module 'react-native-markdown-view' {
   import React from 'react';
-  import { ViewStyle, ImageStyle, TextStyle } from 'react-native';
+  import { ViewStyle, ImageStyle, TextStyle, TextPropTypes } from 'react-native';
 
   export interface CodeBlockNode {
     lang?: string;
@@ -165,5 +165,7 @@ declare module 'react-native-markdown-view' {
    */
   class MarkdownView extends React.Component<MarkdownViewProps> {}
 
-  export { MarkdownView };
+  class MarkdownText extends React.Component<TextPropTypes> {}
+
+  export { MarkdownView, MarkdownText };
 }
