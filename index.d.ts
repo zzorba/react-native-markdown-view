@@ -138,12 +138,25 @@ declare module 'react-native-markdown-view' {
     [key: string]: MarkdownRule<any,any>;
   }
 
+  export interface MarkdownFonts {
+    [key: string]: {
+      fontWeights: {
+        [weight: string]: string;
+      };
+      fontStyles: {
+        normal: string;
+        italic: string;
+      };
+    };
+  }
+
   /**
    * Set of properties applied to a MarkdownView
    *
    * @see MarkdownView
    */
   interface MarkdownViewProps {
+    fonts?: MarkdownFonts;
     rules?: MarkdownRules;
     /**
      * An object providing styles to be passed to a corresponding rule render method. Keys are

@@ -73,6 +73,7 @@ class MarkdownText extends React.Component {
       return (
         <Text
           {...props}
+          selectable
           style={newStyle}
         />
       );
@@ -90,6 +91,7 @@ class MarkdownText extends React.Component {
       return (
         <Text
           {...props}
+          selectable
           children={newChildren}
           style={omit(mergedStyle, ["fontFamily", "fontStyle", "fontWeight"])}
         />
