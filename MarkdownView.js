@@ -99,7 +99,7 @@ class MarkdownView extends Component {
 
     return (
       <View style={this.props.style}>
-        <FontFamilyContext.Provider value={{ style: style.paragraph || {}, fonts }}>
+        <FontFamilyContext.Provider value={{ style: styles.paragraph || {}, fonts }}>
           {render(ast, initialRenderState)}
         </FontFamilyContext.Provider>
       </View>
