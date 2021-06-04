@@ -99,13 +99,13 @@ declare module 'react-native-markdown-view' {
     tableCellOddColumn?: ViewStyle;
     tableCellEvenColumn?: ViewStyle;
     tableCellLastColumn?: ViewStyle;
-    tableCellContent?: ViewStyle;
-    tableCellContentOddRow?: ViewStyle;
-    tableCellContentEvenRow?: ViewStyle;
-    tableCellContentLastRow?: ViewStyle;
-    tableCellContentOddColumn?: ViewStyle;
-    tableCellContentEvenColumn?: ViewStyle;
-    tableCellContentLastColumn?: ViewStyle;
+    tableCellContent?: TextStyle;
+    tableCellContentOddRow?: TextStyle;
+    tableCellContentEvenRow?: TextStyle;
+    tableCellContentLastRow?: TextStyle;
+    tableCellContentOddColumn?: TextStyle;
+    tableCellContentEvenColumn?: TextStyle;
+    tableCellContentLastColumn?: TextStyle;
     u?: TextStyle;
   }
 
