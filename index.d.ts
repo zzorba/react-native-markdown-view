@@ -85,13 +85,13 @@ declare module 'react-native-markdown-view' {
     listItem?: ViewStyle;
     listItemNumber?: ViewStyle;
     listItemBullet?: ViewStyle;
-    listItemOrderedContent?: ViewStyle;
-    listItemUnorderedContent?: ViewStyle;
+    listItemOrderedContent?: TextStyle;
+    listItemUnorderedContent?: TextStyle;
     paragraph?: TextStyle;
     strong?: TextStyle;
     table?: ViewStyle;
     tableHeaderCell?: ViewStyle;
-    tableHeaderCellContent?: ViewStyle;
+    tableHeaderCellContent?: TextStyle;
     tableCell?: ViewStyle;
     tableCellOddRow?: ViewStyle;
     tableCellEvenRow?: ViewStyle;
