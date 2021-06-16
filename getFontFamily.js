@@ -22,6 +22,10 @@ const getFontFamily = (fontMap, baseFontFamily, styles = {}) => {
     throw new Error(`Font '${baseFontFamily}' is not configured for a font style of '${fontStyle}'.`);
   }
 
+  if (style === '' && weight === font.fontWeight.normal) {
+    return baseFontFamily;
+  }
+
   if (style === font.fontStyles.italic && weight === font.fontWeights.normal) {
     return `${baseFontFamily}-${style}`;
   }
