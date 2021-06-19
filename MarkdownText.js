@@ -117,7 +117,7 @@ class MarkdownText extends React.Component {
             return (
               <FontFamilyContext.Provider value={{
                 fonts,
-                style: {...fontStyle, ...resolvedFontStyle},
+                style: {...fontStyle, ...resolvedStyle},
               }}>
                 {this.renderChildren(props, mergedStyle)}
               </FontFamilyContext.Provider>
