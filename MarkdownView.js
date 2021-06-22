@@ -83,6 +83,7 @@ class MarkdownView extends Component {
     onLinkPress?: (string) => void,
     styles?: Styles,
     children: string,
+    textStyle?: Object,
   }
 
   render() {
@@ -115,7 +116,13 @@ class MarkdownView extends Component {
 
     return (
       <View style={this.props.style}>
-        <FontFamilyContext.Provider value={{ style: styles.paragraph || {}, fonts }}>
+        <FontFamilyContext.Provider value={{
+          fonts,
+          style: {
+            ...(textStyle || {}),
+            ...(styles.paragraph || {}),
+          }}
+        }>
           {render(ast, initialRenderState)}
         </FontFamilyContext.Provider>
       </View>

@@ -156,6 +156,7 @@ declare module 'react-native-markdown-view' {
    * @see MarkdownView
    */
   interface MarkdownViewProps {
+    textStyle?: TextStyle;
     fonts?: MarkdownFonts;
     rules?: MarkdownRules;
     /**
