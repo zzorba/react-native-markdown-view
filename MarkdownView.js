@@ -87,7 +87,7 @@ class MarkdownView extends Component {
   }
 
   render() {
-    const {rules = {}, styles = {}, onLinkPress, fonts = {
+    const {rules = {}, styles = {}, textStyle = {}, onLinkPress, fonts = {
       Alegreya: {
         fontWeights: {
           300: 'Light',
@@ -119,7 +119,7 @@ class MarkdownView extends Component {
         <FontFamilyContext.Provider value={{
           fonts,
           style: {
-            ...(textStyle || {}),
+            ...textStyle,
             ...(styles.paragraph || {}),
           }}
         }>
