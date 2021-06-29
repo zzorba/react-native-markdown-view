@@ -22,6 +22,17 @@ import type {
   Styles,
 } from './types'
 
+function omit(object, keys) {
+  const to_drop = new Set(keys);
+  const result = {};
+  Object.keys(object).forEach(nodeKey => {
+    if (!to_drop.has(nodeKey)) {
+      result[nodeKey] = object[nodeKey];
+    }
+  });
+  return result;
+}
+
 function simpleMarkdownRule(rule, styles) {
   const {render, ...properties} = rule
   const reactRender = render ? {react: (node, output, state) => render(node, output, state, styles)} : null
@@ -106,7 +117,9 @@ class MarkdownView extends Component {
     }} = this.props
 
     const mergedStyles = mergeStyles(DefaultStyles, styles)
-    const mergedRules = mergeRules(SimpleMarkdown.defaultRules, simpleMarkdownRules(mergeRules(DefaultRules, rules), mergedStyles))
+    const mergedRules = mergeRules(
+      omit(SimpleMarkdown.defaultRules, ['codeBlock', 'del', 'image', 'inlineCode']),
+      simpleMarkdownRules(mergeRules(DefaultRules, rules), mergedStyles))
 
     const markdown = (Array.isArray(this.props.children) ? this.props.children.join('') : this.props.children) + '\n\n'
 
