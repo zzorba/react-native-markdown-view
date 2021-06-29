@@ -115,8 +115,6 @@ export default Object.freeze({
       {'\n\n'}
     </Text>
   ),
-  codeBlock: textContentRenderer('codeBlock'),
-  del: textContentRenderer('del'),
   em: textContentRenderer('em'),
   heading: (node: HeadingNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => (
     textContentRenderer('heading', 'heading' + node.level)(node, output, state, styles)
@@ -124,8 +122,6 @@ export default Object.freeze({
   hr: (node: EmptyNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => (
     <View key={state.key} style={styles.hr}/>
   ),
-  image: renderImage,
-  inlineCode: textContentRenderer('inlineCode'),
   link: (node: LinkNode, output: OutputFunction, state: RenderState, styles: RenderStyles) => {
     const onPress = state.onLinkPress
     return <MarkdownText key={state.key} style={styles.link} onPress={onPress ? () => onPress(node.target) : null}>
