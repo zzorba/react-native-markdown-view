@@ -73,16 +73,6 @@ const DefaultRules : Rules = Object.freeze(mergeRules(
     heading: {
       match: SimpleMarkdown.blockRegex(/^ *(#{1,6}) +([^\n]+?) *#* *(?:\n *)*\n/),
     },
-    image: {
-      match: inlineRegex(new RegExp("^!\\[(" + IMAGE_LINK + ")\\]\\(" + IMAGE_HREF_AND_TITLE + IMAGE_SIZE)),
-      parse: (capture, parse, state): ImageNode => ({
-        alt: capture[1],
-        target: unescapeUrl(capture[2]),
-        title: capture[3],
-        width: capture[4] ? parseInt(capture[4]) : undefined,
-        height: capture[5] ? parseInt(capture[5]) : undefined,
-      })
-    }
   }
 ))
 
